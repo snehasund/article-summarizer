@@ -10,38 +10,36 @@
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center; /* Horizontally center */
+            align-items: flex-start; /* Align items at the top */
+            min-height: 100vh; /* Ensure full viewport height */
         }
-        .navbar {
-            background-color: #333;
-            overflow: hidden;
+        .container-wrapper {
+            display: flex;
+            justify-content: center; /* Horizontally center */
+            align-items: flex-start; /* Align items at the top */
             width: 100%;
-        }
-        .navbar a {
-            float: left;
-            display: block;
-            color: #fff;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-        }
-        .navbar a:hover {
-            background-color: #ddd;
-            color: #333;
+            max-width: 800px; /* Limit maximum width */
         }
         .container {
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             padding: 20px;
-            width: 300px;
-            margin: 20px auto;
+            width: 400px;
+            height: 250px;
+            margin: 30px;
             text-align: center;
+            box-sizing: border-box; /* Include padding in width calculation */
         }
         h1 {
             color: #333;
             margin-top: 0;
         }
-        input[type="text"] {
+        input[type="text"],
+        input[type="submit"],
+        textarea {
             width: calc(100% - 22px);
             padding: 10px;
             margin-top: 10px;
@@ -50,20 +48,10 @@
             box-sizing: border-box;
         }
         input[type="submit"] {
-            width: calc(100% - 22px);
-            padding: 10px;
-            margin-top: 10px;
-            border: none;
-            border-radius: 20px; /* Oval shape */
-            background-color: #CBC3E3; /* Button color */
-            color: #fff; /* Button text color */
-            font-weight: bold; /* Bold font */
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+            width: auto; /* Auto width */
+            margin-left: 5px; /* Adjust margin */
         }
-        input[type="submit"]:hover {
-            background-color: #a89cc8; /* Darker shade on hover */
-        }
+        input[type="text"],
         textarea {
             width: calc(100% - 22px);
             padding: 10px;
@@ -71,28 +59,23 @@
             border: 1px solid #ddd;
             border-radius: 4px;
             box-sizing: border-box;
-            resize: vertical; /* Allow vertical resizing */
-            min-height: 200px; /* Set a minimum height */
         }
     </style>
 </head>
 <body>
-    <div class="navbar">
-        <a href="#">Option #2</a>
-    </div>
-    <div class="container">
-        <h1>Text Summarization</h1>
-        <form method="POST">
-            <input type="text" name="url" id="url" placeholder="Enter URL...">
-            <input type="submit" name="submit" id="submit" value="Summarize">
-        </form>
-    </div>
-    <!-- Option Two Content -->
-    <div id="option-two-content" style="display: none;">
+    <div class="container-wrapper">
         <div class="container">
-            <h1>Option Two: Text Summarization</h1>
-            <form method="POST" id="text-summarization-form">
-                <textarea name="input-text" id="input-text" placeholder="Enter text to summarize..."></textarea>
+            <h1>Web Page Summarization</h1>
+            <form method="POST" action="/">
+                <input type="text" name="url" id="url" placeholder="Enter URL...">
+                <input type="submit" name="submit" id="submit" value="Summarize">
+            </form>
+        </div>
+        <!-- Option Two Content -->
+        <div class="container">
+            <h1>Text Summarization</h1>
+            <form method="POST" action="/">
+                <input type="text" name="text" id="text" placeholder="Enter text...">
                 <input type="submit" name="submit-text" id="submit-text" value="Summarize">
             </form>
         </div>
