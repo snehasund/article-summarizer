@@ -24,8 +24,8 @@ def summarize_text(text, n=5):
 def get_page_content(url):
     req = requests.get(url)
     soup = BeautifulSoup(req.text, 'html.parser')
-    wiki_text = ' '.join([para.text for para in soup.find_all("p")])
-    return wiki_text
+    page_text = ' '.join([para.text for para in soup.find_all("p")])
+    return page_text
 
 def top_n_sentences(text, n=5):
     words = nltk.word_tokenize(text.lower())
@@ -44,8 +44,8 @@ def index():
     if request.method == "POST":
         if "url" in request.form:
             url = request.form.get("url")
-            wiki_text = get_page_content(url)
-            summary = summarize_text(wiki_text)
+            page_text = get_page_content(url)
+            summary = summarize_text(page_text)
             return render_template("summary.html", summary=summary)
         elif "input_text" in request.form:
             input_text = request.form.get("input_text")
