@@ -1,2 +1,2 @@
 # article-summarizer
-summarizes long essays &amp; articles
+summarizes web-pages &amp; long texts
