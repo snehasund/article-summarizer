@@ -17,8 +17,17 @@
         }
         .container-wrapper {
             display: flex;
+            flex-direction: column; /* Arrange children in a column */
+            align-items: center; /* Horizontally center */
+            width: 100%;
+            max-width: 800px; /* Limit maximum width */
+            padding: 20px;
+        }
+        .card-wrapper {
+            display: flex;
             justify-content: center; /* Horizontally center */
-            align-items: flex-start; /* Align items at the top */
+            align-items: stretch; /* Align items at the top */
+            gap: 20px; /* Add gap between cards */
             width: 100%;
             max-width: 800px; /* Limit maximum width */
         }
@@ -27,19 +36,17 @@
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             padding: 20px;
-            width: 400px;
-            height: 250px;
-            margin: 30px;
             text-align: center;
             box-sizing: border-box; /* Include padding in width calculation */
+            width: 100%;
+            max-width: 400px;
         }
         h1 {
             color: #333;
             margin-top: 0;
         }
         input[type="text"],
-        input[type="submit"],
-        textarea {
+        input[type="submit"] {
             width: calc(100% - 22px);
             padding: 10px;
             margin-top: 10px;
@@ -51,41 +58,34 @@
             width: auto; /* Auto width */
             margin-left: 5px; /* Adjust margin */
         }
-        input[type="text"],
-        textarea {
-            width: calc(100% - 22px);
-            padding: 10px;
-            margin-top: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
+        p {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #555;
         }
     </style>
 </head>
 <body>
     <div class="container-wrapper">
-        <div class="container">
-            <h1>Web Page Summarization</h1>
-            <form method="POST" action="/">
-                <input type="text" name="url" id="url" placeholder="Enter URL...">
-                <input type="submit" name="submit" id="submit" value="Summarize">
-            </form>
-        </div>
-        <!-- Option Two Content -->
-        <div class="container">
-            <h1>Text Summarization</h1>
-            <form method="POST" action="/">
-                <input type="text" name="text" id="text" placeholder="Enter text...">
-                <input type="submit" name="submit-text" id="submit-text" value="Summarize">
-            </form>
+        <p>Welcome to my text summarization tool! You can either enter a URL to summarize a web page or directly enter text for summarization.</p>
+        <div class="card-wrapper">
+            <div class="container">
+                <h1>Web Page Summarization</h1>
+                <form method="POST" action="/">
+                    <input type="text" name="url" id="url" placeholder="Enter URL...">
+                    <input type="submit" name="submit" id="submit" value="Summarize">
+                </form>
+            </div>
+            <!-- Option Two Content -->
+            <div class="container">
+                <h1>Text Summarization</h1>
+                <form method="POST" action="/">
+                    <input type="text" name="input_text" id="input_text" placeholder="Enter text...">
+                    <input type="submit" name="submit_text" id="submit_text" value="Summarize">
+                </form>
+            </div>
         </div>
     </div>
-    
-    <script>
-        // Toggle visibility of Option Two content
-        document.querySelector('.navbar a[href="#"]').addEventListener('click', function() {
-            document.getElementById('option-two-content').style.display = 'block';
-        });
-    </script>
 </body>
 </html>
