@@ -16,7 +16,7 @@ def summarize_text(text, n=5):
     word_freq = nltk.FreqDist(filtered_words)
     sentences = sent_tokenize(text)
     sentences_score = {i: sum(word_freq[word] for word in word_tokenize(sent.lower()) if word in word_freq)
-                       for i, sent in enumerate(sentences)}
+        for i, sent in enumerate(sentences)}
     top_sentences_indices = sorted(sentences_score, key=sentences_score.get, reverse=True)[:n]
     top_sentences = [sentences[i] for i in top_sentences_indices]
     return " ".join(top_sentences)
@@ -34,7 +34,7 @@ def top_n_sentences(text, n=5):
     word_freq = nltk.FreqDist(filtered_words)
     sentences = nltk.sent_tokenize(text)
     sentences_score = {i: sum(word_freq[word] for word in nltk.word_tokenize(sent.lower()) if word in word_freq)
-                       for i, sent in enumerate(sentences)}
+        for i, sent in enumerate(sentences)}
     top_sentences_indices = sorted(sentences_score, key=sentences_score.get, reverse=True)[:n]
     top_sentences = [sentences[i] for i in top_sentences_indices]
     return " ".join(top_sentences)
