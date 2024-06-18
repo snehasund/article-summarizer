@@ -1,0 +1,4 @@
+flask
+bs4
+nltk
+requests
