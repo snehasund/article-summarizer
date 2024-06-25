@@ -1,5 +1,5 @@
 # article-summarizer
-summarizes web-pages &amp; long texts
+summarizes web-pages (like wikipedia sites) &amp; long texts to save users' time
 
 <h2>to run this project: </h2>
 
